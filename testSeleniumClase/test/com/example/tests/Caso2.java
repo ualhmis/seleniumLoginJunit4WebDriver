@@ -23,22 +23,22 @@ public class Caso2 {
   public void setUp() throws Exception {
     // driver = new FirefoxDriver();
 	driver = new HtmlUnitDriver();
-    baseUrl = "https://www.google.es/";
+	  // turn off htmlunit warnings
+	  java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(java.util.logging.Level.OFF);
+	  java.util.logging.Logger.getLogger("org.apache.http").setLevel(java.util.logging.Level.OFF);
+
+	  baseUrl = "http://www.ual.es/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
   @Test
   public void testCaso2() throws Exception {
-    driver.get(baseUrl + "/?gws_rd=ssl#q=Universidad+de+almeria");
-    driver.findElement(By.id("lst-ib")).clear();
-    driver.findElement(By.id("lst-ib")).sendKeys("Universidad de almeria");
-    driver.findElement(By.name("btnG")).click();
-    driver.findElement(By.linkText("Universidad de Almeria")).click();
+    driver.get(baseUrl + "/");
     driver.findElement(By.linkText("Grados, 1 y 2 Ciclo")).click();
-    driver.findElement(By.linkText("Grado en Ingenieria Informatica (Plan 2015)")).click();
+    driver.findElement(By.linkText("Grado en Ingeniería Informática (Plan 2015)")).click();
     driver.findElement(By.linkText("Plan de Estudios")).click();
     driver.findElement(By.linkText("Asignaturas ordenadas por cursos")).click();
-    assertEquals("Integracion de Sistemas Software", driver.findElement(By.xpath("//div[@id='articulo']/table/tbody/tr[9]/td[2]/a/strong")).getText());
+    assertEquals("Integración de Sistemas Software", driver.findElement(By.xpath("//div[@id='articulo']/table/tbody/tr[9]/td[2]/a/strong")).getText());
   }
 
   @After

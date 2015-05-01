@@ -21,7 +21,11 @@ public class Caso1 {
 
   @Before
   public void setUp() throws Exception {
+    // driver = new FirefoxDriver();
     driver = new HtmlUnitDriver();
+	  // turn off htmlunit warnings
+	  java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(java.util.logging.Level.OFF);
+	  java.util.logging.Logger.getLogger("org.apache.http").setLevel(java.util.logging.Level.OFF);
     
     baseUrl = "http://www.ual.es/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -29,7 +33,7 @@ public class Caso1 {
 
   @Test
   public void testCaso1() throws Exception {
-    driver.get(baseUrl + "/");
+    driver.get(baseUrl + "");
     driver.findElement(By.linkText("Órganos de Gobierno")).click();
     driver.findElement(By.linkText("Vicerrectorado de Profesorado y Ordenación Académica")).click();
     assertEquals("Edificio de Gobierno y Paraninfo", driver.findElement(By.cssSelector("strong")).getText());
