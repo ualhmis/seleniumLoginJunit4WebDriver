@@ -21,8 +21,8 @@ public class Caso1 {
 
   @Before
   public void setUp() throws Exception {
-    // driver = new FirefoxDriver();
-    driver = new HtmlUnitDriver();
+    driver = new FirefoxDriver();
+    // driver = new HtmlUnitDriver();
 	  // turn off htmlunit warnings
 	  java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(java.util.logging.Level.OFF);
 	  java.util.logging.Logger.getLogger("org.apache.http").setLevel(java.util.logging.Level.OFF);
