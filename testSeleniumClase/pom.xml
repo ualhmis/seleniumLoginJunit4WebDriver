@@ -53,24 +53,9 @@
   		<type>pom</type>
   	</dependency>
   	<dependency>
-  		<groupId>org.seleniumhq.selenium.core</groupId>
-  		<artifactId>selenium-core</artifactId>
-  		<version>1.0.1</version>
-  	</dependency>
-  	<dependency>
   		<groupId>org.seleniumhq.selenium</groupId>
   		<artifactId>selenium-htmlunit-driver</artifactId>
   		<version>2.45.0</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.seleniumhq.webdriver</groupId>
-  		<artifactId>webdriver-firefox</artifactId>
-  		<version>0.9.7376</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.seleniumhq.webdriver</groupId>
-  		<artifactId>webdriver-chrome</artifactId>
-  		<version>0.9.7376</version>
   	</dependency>
 
   </dependencies>
