@@ -7,5 +7,5 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({ Caso1.class, Caso2.class })
 public class AllTests {
-//kk
+//<b>kk</b>
 }
