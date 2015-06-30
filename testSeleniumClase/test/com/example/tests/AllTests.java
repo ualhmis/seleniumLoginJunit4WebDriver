@@ -7,5 +7,6 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({ Caso1.class, Caso2.class })
 public class AllTests {
-//<b>kk</b>
+//kk
+// kk2 en rama
 }
