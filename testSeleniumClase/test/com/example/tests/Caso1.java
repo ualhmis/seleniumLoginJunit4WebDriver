@@ -21,14 +21,24 @@ public class Caso1 {
 
   @Before
   public void setUp() throws Exception {
-    // driver = new FirefoxDriver();
-    driver = new HtmlUnitDriver();
+	  // SELECCIÓN DEL DRIVER: elija entre FirefoxDriver, HtmlUnitDriver, etc
+	  // driver = xxxxxDriver(....); 
+
+	  // Firefox 
+	  // Descargar geckodriver de https://github.com/mozilla/geckodriver/releases
+	  // En mi caso he descargado la version win 32b, y la he copiado en la carpeta drivers
+	  System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
+	  driver =new FirefoxDriver();
+
+	  // HtmlUnitDriver (navegador headless)
+	  driver = new HtmlUnitDriver(true);
+
 	  // turn off htmlunit warnings
 	  java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(java.util.logging.Level.OFF);
 	  java.util.logging.Logger.getLogger("org.apache.http").setLevel(java.util.logging.Level.OFF);
-    
-    baseUrl = "http://www.ual.es/";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+	  baseUrl = "http://www.ual.es/";
+	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
   @Test
