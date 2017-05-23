@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://loginmay1720170518060532.azurewebsites.net/" />
+<title>registroRandom</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">registroRandom</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=registerLink</td>
+	<td></td>
+</tr>
+<!--Insertar un valor aleatorio en el email-->
+<!--Primero guardamos el valor aleatorio para luego poder usarlo-->
+<tr>
+	<td>store</td>
+	<td>javascript{&quot;ual&quot; + Math.floor(Math.random()*1500000) + &quot;@ual.es&quot;;}</td>
+	<td>emailrandom</td>
+</tr>
+<!--Mostramos el valor de la variable en el log-->
+<tr>
+	<td>echo</td>
+	<td>${emailrandom}</td>
+	<td></td>
+</tr>
+<!--Ahora escribimos el email en el campo de texto-->
+<tr>
+	<td>type</td>
+	<td>id=Email</td>
+	<td>${emailrandom}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Password</td>
+	<td>ABab12!!</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ConfirmPassword</td>
+	<td>ABab12!!</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.btn.btn-default</td>
+	<td></td>
+</tr>
+<!--Aserción para comprobar que ser ha registrado y logeado correctamente-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>link=Hello ${emailrandom}!</td>
+	<td></td>
+</tr>
+<!--Salimos para finalizar el test dejando el navegador en un estado inicial estable-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Log off</td>
+	<td></td>
+</tr>
+<!--Comprobamos que efectivamente el log off ha funcionado correctamente-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=loginLink</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

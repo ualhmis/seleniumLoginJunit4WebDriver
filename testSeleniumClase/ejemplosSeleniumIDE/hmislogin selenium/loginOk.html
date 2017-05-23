@@ -3,13 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="selenium.base" href="http://ualhmis15.cloudapp.net/" />
-<title>user1signin</title>
+<link rel="selenium.base" href="http://loginmay1720170518060532.azurewebsites.net/" />
+<title>loginOk</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">user1signin</td></tr>
+<tr><td rowspan="1" colspan="3">loginOk</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -17,56 +17,45 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>link=Sign in</td>
+	<td>clickAndWait</td>
+	<td>//a[contains(@href, '/Account/Login')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=user_username</td>
-	<td>user1</td>
+	<td>id=Email</td>
+	<td>hola@ual.es</td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=user_password</td>
-	<td>1234</td>
+	<td>id=Password</td>
+	<td>ABab12!!</td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>name=commit</td>
-	<td></td>
-</tr>
-<tr>
-	<td>assertTitle</td>
-	<td>Protected page | Hmislogin</td>
-	<td></td>
-</tr>
-<tr>
-	<td>assertElementPresent</td>
-	<td>link=Edit your account</td>
-	<td></td>
-</tr>
-<tr>
-	<td>assertElementNotPresent</td>
-	<td>link=Admin</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Sign out</td>
-	<td></td>
-</tr>
-<tr>
-	<td>assertElementPresent</td>
-	<td>id=flash_notice</td>
+	<td>css=input.btn.btn-default</td>
 	<td></td>
 </tr>
 <tr>
 	<td>assertText</td>
-	<td>id=flash_notice</td>
-	<td>Signed out successfully.</td>
+	<td>link=Hello hola@ual.es!</td>
+	<td>Hello hola@ual.es!</td>
 </tr>
-
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Hello hola@ual.es!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Log off</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>id=loginLink</td>
+	<td>Log in</td>
+</tr>
 </tbody></table>
 </body>
 </html>
