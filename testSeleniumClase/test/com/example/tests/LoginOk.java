@@ -24,11 +24,11 @@ public class LoginOk {
 	  // Firefox 
 	  // Descargar geckodriver de https://github.com/mozilla/geckodriver/releases
 	  // En mi caso he descargado la version win 32b, y la he copiado en la carpeta drivers
-	  // System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
-	  // driver =new FirefoxDriver();
+	  System.setProperty("webdriver.gecko.driver", "driver/geckodriver.exe");
+	  driver =new FirefoxDriver();
 	  
 	  // HtmlUnitDriver (navegador headless)
-	  driver = new HtmlUnitDriver(true);
+	  // driver = new HtmlUnitDriver(true);
 
 	  
 	  

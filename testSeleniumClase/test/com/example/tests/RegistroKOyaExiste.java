@@ -2,12 +2,17 @@ package com.example.tests;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+
 import org.junit.*;
+
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
 
 public class RegistroKOyaExiste {
@@ -24,11 +29,15 @@ public class RegistroKOyaExiste {
 	  // Firefox 
 	  // Descargar geckodriver de https://github.com/mozilla/geckodriver/releases
 	  // En mi caso he descargado la version win 32b, y la he copiado en la carpeta drivers
-	  // System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
-	  // driver =new FirefoxDriver();
+	   System.setProperty("webdriver.gecko.driver", "driver/geckodriver.exe");
+	   driver =new FirefoxDriver();
 	  
+	   DesiredCapabilities capabilities = new DesiredCapabilities(); 
+	   capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true); 
+	   capabilities.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true); 
+	   
 	  // HtmlUnitDriver (navegador headless)
-	  driver = new HtmlUnitDriver(true);
+	  //driver = new HtmlUnitDriver(true);
 
 	  
 	  driver.manage().window().setPosition(new Point(0,0));
@@ -37,7 +46,7 @@ public class RegistroKOyaExiste {
 	  // turn off htmlunit warnings
 	            java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(java.util.logging.Level.OFF);
 	  java.util.logging.Logger.getLogger("org.apache.http").setLevel(java.util.logging.Level.OFF);
-	        baseUrl = "http://loginmay1720170518060532.azurewebsites.net/";
+	        baseUrl = "http://loginmay1720170518060532.azurewebsites.net";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
@@ -48,10 +57,10 @@ public class RegistroKOyaExiste {
     driver.findElement(By.id("Email")).clear();
     driver.findElement(By.id("Email")).sendKeys("hola@ual.es");
     driver.findElement(By.id("Password")).clear();
-    driver.findElement(By.id("Password")).sendKeys("ABab12!\"");
+    driver.findElement(By.id("Password")).sendKeys("ABCDabcd1234!!_");
     driver.findElement(By.id("ConfirmPassword")).clear();
-    driver.findElement(By.id("ConfirmPassword")).sendKeys("ABab12!\"");
-    driver.findElement(By.cssSelector("input.btn.btn-default")).click();
+    driver.findElement(By.id("ConfirmPassword")).sendKeys("ABCDabcd1234!!_");
+    driver.findElement(By.cssSelector("input.btn.btn-default")).click();;
     // Este test comprueba que no se puede registrar un usuario ya existente. Fallará porque el usuario ya existe
     assertTrue(isElementPresent(By.cssSelector("div.validation-summary-errors.text-danger > ul > li")));
     assertTrue(isElementPresent(By.id("loginLink")));
