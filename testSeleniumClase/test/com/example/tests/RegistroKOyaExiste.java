@@ -44,10 +44,10 @@ public class RegistroKOyaExiste {
 	  driver.manage().window().setSize(new Dimension(1280,720));
 	  
 	  // turn off htmlunit warnings
-	            java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(java.util.logging.Level.OFF);
+	  java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(java.util.logging.Level.OFF);
 	  java.util.logging.Logger.getLogger("org.apache.http").setLevel(java.util.logging.Level.OFF);
-	        baseUrl = "http://loginmay1720170518060532.azurewebsites.net";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	  baseUrl = "http://loginmay1720170518060532.azurewebsites.net";
+	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
   @Test
